@@ -1,5 +1,8 @@
 module TestGuru
-  class Application < Rails::Application
-    config.version = 1.0
+
+  VER = '0.1.0'
+
+  def TestGuru.version
+    VER
   end
 end
