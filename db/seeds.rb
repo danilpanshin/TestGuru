@@ -5,25 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Category.destroy_all
-Test.destroy_all
-Question.destroy_all
-Answer.destroy_all
-
+[User, Category, Test, Question, Answer].each(&:destroy_all)
 
 User.create([
                       {name: "John Smith",
-                      points: 0,
-                      user_id: 1},
+                      points: 0},
 
                       {name: "Thomas Anderson",
-                      points: 0,
-                      user_id: 2},
+                      points: 0},
 
                       {name: "Trinity",
-                      points: 0,
-                      user_id: 3}
+                      points: 0}
                     ])
 
 Category.create( [
@@ -37,16 +29,13 @@ Category.create( [
 
 Test.create([
                      {title: "Ruby",
-                     level: 1,
-                     test_id: 1},
+                     level: 1},
 
                      {title: "HTML",
-                     level: 0,
-                     test_id: 2},
+                     level: 0},
 
                      {title: "Swift",
-                     level: 2,
-                     test_id: 3}
+                     level: 2}
             ])
 
 Question.create([
