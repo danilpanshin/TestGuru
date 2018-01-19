@@ -8,6 +8,8 @@ class Question < ApplicationRecord
 
   validate :answers_number
 
+  private
+
   def answers_number
     errors.add(:answers, 'wrong number of answers') if questions.answers.size > 4 && questions.answers.size < 1
   end
