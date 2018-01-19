@@ -4,8 +4,7 @@ class User < ApplicationRecord
 
   has_many :tests, inverse_of: 'author'
 
-
-
+  validates :email, presence: true
 
 
   #def user_tests_by_level (level)
