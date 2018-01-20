@@ -6,7 +6,7 @@ class Answer < ApplicationRecord
   private
 
   def answers_number
-    errors.add(:question, 'wrong number of answers') if !(1..4).include?(question.answers.count)
+    errors.add(:question, 'wrong number of answers') unless (1..4).include?(question.answers.count)
   end
 
 end

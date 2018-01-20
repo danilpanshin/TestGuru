@@ -15,13 +15,13 @@ class Test < ApplicationRecord
   #User.tests.by_level(0)
 
   scope :by_category, -> (category) { joins(:category).where(categories: { title: category }) }
-  Test.by_category('Backend').order(title: :desc).pluck(:title)
 
   def self.ordered_test_titles_by_category(category)
-    Test.joins('JOIN categories ON categories.id = tests.category_id')
-        .where('categories.title = :category', category: category)
-        .order('tests.title DESC')
-        .pluck('tests.title')
+    Test.by_category(category).order(title: :desc).pluck(:title)
+    #Test.joins('JOIN categories ON categories.id = tests.category_id')
+    #    .where('categories.title = :category', category: category)
+    #    .order('tests.title DESC')
+    #    .pluck('tests.title')
   end
 
   validates :title, presence: true,
