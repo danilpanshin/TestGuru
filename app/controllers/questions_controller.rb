@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-before_action :find_question, only: [:destroy, :show]
-before_action :find_test, only: [:index]
+before_action :find_question, only: [:show]
+before_action :find_test, only: [:index, :destroy]
 
 rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -21,8 +21,10 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def destroy
-    @question.destroy
+    @questions = @test.questions.find(params[:id])
+    @questions.destroy
     redirect_to action: "index", test_id: 4
+    #redirect_to test_questions_path(@question)
   end
 
   private
@@ -32,7 +34,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def find_question
-    @question = Question.find(params[:id])
+    @questions = Question.find(params[:id])
   end
 
   def question_params

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-
-  #delete '/tests/:test_id/questions/:id', to: 'questions#destroy', as: 'question_destroy'
+  match '/tests/:test_id/questions/:id', to: 'questions#destroy', via: 'delete'
+  #get '/tests/:test_id/questions/:id', to: 'questions#destroy', as: 'question_destroy'
 
   #get '/tests/:test_id/questions', to: 'questions#index'
   #get '/tests/:test_id/questions', to: 'questions#create'
