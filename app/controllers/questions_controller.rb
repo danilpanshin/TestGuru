@@ -17,14 +17,13 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
     question = Question.new(question_params)
     question.save
     #render plain: question.inspect
-    redirect_to action: "index", test_id: 4
+    redirect_to action: "index", test_id: question.test_id
   end
 
   def destroy
     @questions = @test.questions.find(params[:id])
     @questions.destroy
-    redirect_to action: "index", test_id: 4
-    #redirect_to test_questions_path(@question)
+    redirect_to action: "index", test_id: @questions.test_id
   end
 
   private
