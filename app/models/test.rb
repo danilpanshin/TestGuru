@@ -16,6 +16,7 @@ class Test < ApplicationRecord
 
   scope :by_category, -> (category) { joins(:category).where(categories: { title: category }) }
 
+
   def self.ordered_test_titles_by_category(category)
     Test.by_category(category).order(title: :desc).pluck(:title)
     #Test.joins('JOIN categories ON categories.id = tests.category_id')
@@ -23,6 +24,7 @@ class Test < ApplicationRecord
     #    .order('tests.title DESC')
     #    .pluck('tests.title')
   end
+
 
   validates :title, presence: true,
                     uniqueness: { scope: :level,
