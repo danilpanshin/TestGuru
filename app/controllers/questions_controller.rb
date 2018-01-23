@@ -21,7 +21,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to action: "index", test_id: 4
   end
