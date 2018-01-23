@@ -1,11 +1,12 @@
 
 <table>
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+ 
   <tr>
     <th>id</th>
     <th>body</th>
     <th>theme</th>
     <th>test_id</th>
+    <th><%= link_to 'New question',new_test_question_path  %></th>
   </tr>
 
   <%= @questions.each do |q| %>
