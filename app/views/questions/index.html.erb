@@ -1,0 +1,25 @@
+
+<table>
+ 
+  <tr>
+    <th>id</th>
+    <th>body</th>
+    <th>theme</th>
+    <th>test_id</th>
+    <th><%= link_to 'New question',new_test_question_path  %></th>
+  </tr>
+
+  <%= @questions.each do |q| %>
+<tr>
+  <td><%= q.id %></td>
+  <td><%= q.body%></td>
+  <td><%= q.theme %></td>
+  <td><%= q.test_id %></td>
+  <td><%= link_to 'Destroy',test_question_path(q.test_id, q.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+</tr>
+
+<% end %>
+
+  </table>
