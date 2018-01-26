@@ -1,26 +1,55 @@
 class QuestionsController < ApplicationController
 before_action :find_question, only: [:show]
-before_action :find_test, only: [:index, :destroy, :create]
+before_action :find_test, only: [:index, :create, :new]
 
 
 
   def index
-    render plain: @test.questions.inspect
+    @questions = @test.questions
   end
 
   def show
+    #@question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
+  end
 
+  def new
+    @question = @test.questions.new
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
   end
 
   def create
     @question = @test.questions.new(question_params)
-    render plain: @question.inspect
+
+    if @question.save
+      redirect_to action: :index
+    else
+      render :new
+    end
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to action: :index, test_id: @question.test_id
+    else
+      render :new
+    end
   end
 
   def destroy
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
     @question.destroy
-    render plain: "Question has been destoyed"
+
+    #redirect_to test_questions_path
+    redirect_to action: "index", test_id: @question.test_id
   end
 
   private

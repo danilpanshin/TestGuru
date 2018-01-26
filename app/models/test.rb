@@ -3,9 +3,9 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
 
   has_many :questions
-  belongs_to :category
+  #belongs_to :category
 
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  #belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
 
   scope :beginner, -> { by_level(0..1) }
   scope :intermediate, -> { by_level(2..4) }
