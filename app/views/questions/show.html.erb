@@ -1,7 +1,11 @@
-<h1><%= @questions.body %></h1>
+<p>
+  <strong>Body:</strong>
+  <%= @question.body %>
+</p>
 
-<ul>
-  <li>Id: <%=@questions.id %></li>
-  <li>Theme: <%=@questions.theme %></li>
-  <li>Test_id: <%=@questions.test_id %></li>
-</ul>
+<p>
+  <strong>Theme:</strong>
+  <%= @question.theme %>
+</p>
+
+<p><%= link_to 'Back', test_path(@question.test) %></p>

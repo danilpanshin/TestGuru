@@ -1,0 +1,33 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= Category.where(id: @test.category_id).pluck(:title) %>
+</p>
+
+<p>
+  <%= link_to 'New Question', new_test_question_path(@test.id) %>
+</p>
+
+<table>
+
+  <tr >
+    <th>id</th>
+    <th>body</th>
+    <th>theme</th>
+    <th>test_id</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+   <%= render partial: 'questions/question', collection: @test.questions %>
+
+<p><%= link_to 'Back', tests_path %></p>
+<p><%= link_to 'Edit Test', edit_test_path(@test) %></p>

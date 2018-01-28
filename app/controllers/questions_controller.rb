@@ -1,29 +1,55 @@
 class QuestionsController < ApplicationController
 before_action :find_question, only: [:show]
-before_action :find_test, only: [:index, :destroy]
+before_action :find_test, only: [:index, :create, :new]
 
-rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-    render 'index'
-  end
+
+  #def index
+    #@questions = @test.questions
+  #end
 
   def show
-    render 'show'
+    #@question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
+  end
+
+  def new
+    @question = @test.questions.new
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
   end
 
   def create
-    question = Question.new(question_params)
-    question.save
-    #render plain: question.inspect
-    redirect_to action: "index", test_id: question.test_id
+    @question = @test.questions.new(question_params)
+
+    if @question.save
+      redirect_to controller: 'tests', action: 'show', id: @question.test_id
+    else
+      render :new
+    end
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to controller: 'tests', action: 'show', id: @question.test_id
+    else
+      render :new
+    end
   end
 
   def destroy
-    @questions = @test.questions.find(params[:id])
-    @questions.destroy
-    redirect_to action: "index", test_id: @questions.test_id
+    @question = Question.find(params[:id])
+    #@question = @test.questions.find(params[:id])
+    @question.destroy
+
+    #redirect_to test_questions_path
+    redirect_to controller: 'tests', action: 'show', id: @question.test_id
   end
 
   private
@@ -33,15 +59,11 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def find_question
-    @questions = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params
-    params.require(:question).permit(:body, :theme, :test_id)
-  end
-
-  def rescue_with_question_not_found
-    render plain: 'Question was not found'
+    params.require(:question).permit(:body, :theme)
   end
 
 end
