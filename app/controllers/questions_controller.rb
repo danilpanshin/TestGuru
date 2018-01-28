@@ -1,16 +1,10 @@
 class QuestionsController < ApplicationController
-before_action :find_question, only: [:show]
-before_action :find_test, only: [:index, :create, :new]
+before_action :find_question, only: [:show, :edit, :update, :destroy]
+before_action :find_test, only: [:create, :new]
 
-
-
-  #def index
-    #@questions = @test.questions
-  #end
 
   def show
-    #@question = @test.questions.find(params[:id])
-    @question = Question.find(params[:id])
+
   end
 
   def new
@@ -18,8 +12,7 @@ before_action :find_test, only: [:index, :create, :new]
   end
 
   def edit
-    @question = Question.find(params[:id])
-    #@question = @test.questions.find(params[:id])
+
   end
 
   def create
@@ -33,8 +26,6 @@ before_action :find_test, only: [:index, :create, :new]
   end
 
   def update
-    @question = Question.find(params[:id])
-    #@question = @test.questions.find(params[:id])
 
     if @question.update(question_params)
       redirect_to controller: 'tests', action: 'show', id: @question.test_id
@@ -44,11 +35,9 @@ before_action :find_test, only: [:index, :create, :new]
   end
 
   def destroy
-    @question = Question.find(params[:id])
-    #@question = @test.questions.find(params[:id])
+
     @question.destroy
 
-    #redirect_to test_questions_path
     redirect_to controller: 'tests', action: 'show', id: @question.test_id
   end
 
