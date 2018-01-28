@@ -4,9 +4,9 @@ before_action :find_test, only: [:index, :create, :new]
 
 
 
-  def index
-    @questions = @test.questions
-  end
+  #def index
+    #@questions = @test.questions
+  #end
 
   def show
     #@question = @test.questions.find(params[:id])
@@ -26,7 +26,7 @@ before_action :find_test, only: [:index, :create, :new]
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to action: :index
+      redirect_to controller: 'tests', action: 'show', id: @question.test_id
     else
       render :new
     end
@@ -37,7 +37,7 @@ before_action :find_test, only: [:index, :create, :new]
     #@question = @test.questions.find(params[:id])
 
     if @question.update(question_params)
-      redirect_to action: :index, test_id: @question.test_id
+      redirect_to controller: 'tests', action: 'show', id: @question.test_id
     else
       render :new
     end
@@ -49,7 +49,7 @@ before_action :find_test, only: [:index, :create, :new]
     @question.destroy
 
     #redirect_to test_questions_path
-    redirect_to action: "index", test_id: @question.test_id
+    redirect_to controller: 'tests', action: 'show', id: @question.test_id
   end
 
   private
