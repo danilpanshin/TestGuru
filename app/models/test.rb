@@ -1,18 +1,15 @@
 class Test < ApplicationRecord
-  has_many :tests_users
-  has_many :users, through: :tests_users
-
+  has_many :test_passages
+  has_many :users, through: :test_passages
   has_many :questions
-  #belongs_to :category
-
-  #belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
+  belongs_to :category, optional: true
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
 
   scope :beginner, -> { by_level(0..1) }
   scope :intermediate, -> { by_level(2..4) }
   scope :advanced, -> { by_level(5..Float::INFINITY) }
 
   scope :by_level, -> (level) { where(level: level) }
-  #User.tests.by_level(0)
 
   scope :by_category, -> (category) { joins(:category).where(categories: { title: category }) }
 
