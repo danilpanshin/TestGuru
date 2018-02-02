@@ -40,11 +40,9 @@ Test.create([
 
 Question.create([
                          {body: "What is 'let'?",
-                          theme: "Swift",
                           test_id: 1},
 
                          {body: "What does the following code print?",
-                          theme: "Ruby",
                           test_id: 1}
                 ])
 

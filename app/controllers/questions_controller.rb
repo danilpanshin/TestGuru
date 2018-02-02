@@ -52,7 +52,7 @@ before_action :find_test, only: %i[create new]
   end
 
   def question_params
-    params.require(:question).permit(:body, :theme)
+    params.require(:question).permit(:body)
   end
 
 end
