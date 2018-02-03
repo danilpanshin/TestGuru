@@ -1,21 +1,9 @@
 <h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
 
-<p>
-  <strong>
-
-	<%= if @test_passage.success
-		  color = 'block_green'
-		  render plain: 'The test passed successfully'
-	    else
-	      color = 'block_red'	
-	      render plain: 'Test failed'	
-		end %>
-
-  </strong>
-</p>
+<p><strong><%= number_color(@test_passage) %></strong></p>
 
 <p>
-	Correct answers: <span class="<%= color %>"><%= @test_passage.percent %>%</span>
+	Correct answers: <span class="<%= @color %>"><%= @test_passage.percent_of_complition %>%</span>
 </p>
 
 <p><%= link_to 'Back to the list of tests', tests_path %></p>

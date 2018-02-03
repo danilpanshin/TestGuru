@@ -7,7 +7,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_next_question, on: :update
 
 
-  SUCCESS = 85
+  SUCCESS_RATE = 85
 
 
   def completed?
@@ -19,22 +19,20 @@ class TestPassage < ApplicationRecord
   	if correct_answer?(answer_ids)
   	  self.correct_questions += 1
     end
-
-    #self.current_question = next_question
     save!
   end
 
-  def number
+  def number_of_question
     test.questions.index(current_question) + 1
   end
 
 
-  def percent
+  def percent_of_complition
     (correct_questions.to_f/test.questions.count*100).round 2
   end
 
-  def success
-  	percent > SUCCESS
+  def success_test?
+  	percent_of_complition > SUCCESS_RATE
   end
 
   
@@ -60,9 +58,7 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-
-  	test.questions.order(:id).where('id > ?', current_question.id).first 
-  	
+    test.questions.order(:id).where('id > ?', current_question.id).first 
   end
 
   def before_validation_set_next_question
