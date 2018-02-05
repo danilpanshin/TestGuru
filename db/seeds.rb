@@ -9,13 +9,13 @@
 
 User.create([
                       {name: "John Smith",
-                      points: 0},
+                       email: 'john@mail.com'},
 
                       {name: "Thomas Anderson",
-                      points: 0},
+                       email: 'neo@mail.com'},
 
                       {name: "Trinity",
-                      points: 0}
+                       email: 'trinity@mail.com'}
                     ])
 
 Category.create( [
@@ -40,21 +40,53 @@ Test.create([
 
 Question.create([
                          {body: "What is 'let'?",
-                          theme: "Swift"},
+                          test_id: 1},
 
                          {body: "What does the following code print?",
-                          theme: "Ruby"}
+                          test_id: 1}
                 ])
 
 Answer.create([
-                       {answer: 1}
+                       {body: 'nothing',
+                        question_id: 1,
+                        correct: false},
+
+                        {body: 'anything',
+                        question_id: 1,
+                        correct: true},
+
+                        {body: 'everything',
+                        question_id: 1,
+                        correct: false},
+
+                        {body: 'nothing',
+                        question_id: 2,
+                        correct: false},
+
+                        {body: 'anything',
+                        question_id: 2,
+                        correct: true},
+
+                        {body: 'everything',
+                        question_id: 2,
+                        correct: false}
               ])
+TestPassage.create([
+                    {user_id: 1,
+                    test_id: 1,
+                    current_question_id: 1},
+
+                    {user_id: 2,
+                     test_id: 2,
+                     current_question_id: 2},
+
+                     {user_id: 1,
+                    test_id: 1,
+                    current_question_id: 1},
+
+                    {user_id: 1,
+                    test_id: 1,
+                    current_question_id: 1},
+  ])
 
 
-TestsUser.create([
-                          {user_id: 1,
-                           test_id: 1},
-
-                          {user_id: 2,
-                           test_id: 2}
-                 ])

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-before_action :find_question, only: [:show, :edit, :update, :destroy]
-before_action :find_test, only: [:create, :new]
+before_action :find_question, only: %i[show edit update destroy]
+before_action :find_test, only: %i[create new]
 
 
   def show
@@ -52,7 +52,7 @@ before_action :find_test, only: [:create, :new]
   end
 
   def question_params
-    params.require(:question).permit(:body, :theme)
+    params.require(:question).permit(:body)
   end
 
 end

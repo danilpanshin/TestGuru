@@ -3,12 +3,12 @@ class Answer < ApplicationRecord
   scope :correct, -> {where(correct: true)}
 
 
-  validate :answers_number
+ # validate :answers_number
 
   private
 
-  def answers_number
-    errors.add(:question, 'wrong number of answers') unless (1..4).include?(question.answers.count)
-  end
+  #def answers_number
+  #  errors.add(:question, 'wrong number of answers') unless (1..4).include?(question.answers.count)
+  #end
 
 end
