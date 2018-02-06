@@ -1,6 +1,6 @@
 <h1>
 	<% if logged_in? %>
-      <p>Wellcome, <b><%= current_user.email.split('@').first %></b> Guru</p>
+      <p>Wellcome, <b><%= current_user.email.split('@').first.capitalize %></b> Guru</p>
       <p><%= link_to 'Start Tests', tests_path %></p>
       <% else %>
       <p>Wellcome to TestGuru App</p>
