@@ -1,0 +1,10 @@
+<h1>
+	<% if logged_in? %>
+      <p>Wellcome, <b><%= current_user.email %></b> Guru</p>
+      <p><%= link_to 'Start Tests', tests_path %></p>
+      <% else %>
+      <p>Wellcome to TestGuru App</p>
+      <p><%= link_to 'Log In', login_path %> | <%= link_to 'Sign Up', signup_path %></p>
+    <% end %> 
+</h1>
+
