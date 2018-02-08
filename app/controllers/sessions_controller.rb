@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id 
       
-      redirect_to cookies[:home_page]
+      redirect_to cookies[:home_page], notice: "Hi, #{current_user.email.split('@').first.capitalize}! welcome back!"
       
     else
       flash.now[:alert] = 'Are you a Guru? Verify your E-mail and password please'

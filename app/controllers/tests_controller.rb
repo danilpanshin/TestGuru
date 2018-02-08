@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
   
-  before_action :authenticate_user!
-  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :authenticate_user! #для чего здесь использовать метод current_user я так и не понял, ведь метод authenticate_user! создан как раз для того, чтбы проверять залогинен ли пользователь и направлять его на страницу с формой логина. если вместо него использовать current_user, то доступ к ресурсу получает не залогиненный пользователь 
+  before_action :find_test, only: %i[show edit update destroy start] 
   before_action :set_user, only: :start
 
   def index
