@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id 
       
       redirect_to cookies[:home_page]
-
+      
     else
       flash.now[:alert] = 'Are you a Guru? Verify your E-mail and password please'
       render :new
