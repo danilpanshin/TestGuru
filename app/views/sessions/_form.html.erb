@@ -1,6 +1,6 @@
 <%= form_with url: sessions_path, local: true do |form| %>
  
-  <%= flash_message(:alert) %> 
+  <%= render 'shared/flash_messages' %> 
 
   <p>
   	<%= form.label :email %><br>
