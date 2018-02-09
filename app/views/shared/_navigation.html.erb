@@ -1,11 +1,11 @@
-<% if request.fullpath != '/welcome' %>
+<% if !current_page?('/welcome') %>
   <%= link_to 'TestGuru', welcome_path %>
 <% end %>  
 
 
  <% if logged_in? %>
       <%= link_to "Log out", logout_path, method: "delete" %>
-      <p class="nav user">Wellcome, <b><%= current_user.email.split('@').first.capitalize %></b> Guru</p>
+      <p class="nav user">Wellcome, <b><%= user_name %></b> Guru</p>
  <% else %>
       <p><%= link_to 'Log In', login_path %> | <%= link_to 'Sign Up', signup_path %></p>      
  <% end %>

@@ -5,14 +5,18 @@ class ApplicationController < ActionController::Base
   # def rescue_with_question_not_found
   #  render plain: 'Resource was not found'
   # end
-  
+  #before_action :set_return_to_page
+
+
   helper_method :current_user,
-                :logged_in? 
+                :logged_in?,
+                :user_name 
 
   private
 
   def authenticate_user!
-    unless current_user      	
+    unless current_user
+      set_return_to_page      	
       redirect_to login_path, alert: 'Are you a Guru? Verify your E-mail and password please'
     end
 
@@ -26,9 +30,12 @@ class ApplicationController < ActionController::Base
     current_user.present?	
   end
 
-  def set_coock_home_page
-  	cookies[:home_page] = root_path
+  def set_return_to_page
+  	cookies[:return_to] ||= request.original_fullpath
   end	
 
+  def user_name
+    current_user.email.split('@').first.capitalize
+  end
    
 end
