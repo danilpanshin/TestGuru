@@ -12,10 +12,14 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  
+
   def test_passage(test)
   	test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
-  
+  def user_name
+    self.email.split('@').first.capitalize
+  end
 
 end

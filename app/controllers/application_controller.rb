@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user,
                 :logged_in?,
-                :user_name 
+               
 
   private
 
@@ -28,9 +28,5 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user.present?	
   end
-  
-  def user_name
-    current_user.email.split('@').first.capitalize
-  end
-   
+    
 end

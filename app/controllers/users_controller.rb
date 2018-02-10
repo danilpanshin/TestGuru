@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id	
-      redirect_to welcome_path, notice: "Hello, #{user_name}! Are you ready to become a guru?"
+      redirect_to welcome_path, notice: "Hello, #{current_user.user_name}! Are you ready to become a guru?"
     else
       render :new
     end
