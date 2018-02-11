@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  devise_for :users
+
   get 'welcome/index'
 
   get 'sessions/new'
@@ -7,14 +9,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get :welcome, to: 'welcome#index'
-
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  #get :logout, to: 'sessions#destroy'
   delete :logout, to: 'sessions#destroy'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
+ 
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
