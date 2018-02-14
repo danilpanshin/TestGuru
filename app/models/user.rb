@@ -24,5 +24,9 @@ class User < ApplicationRecord
     self.email.split('@').first.capitalize
   end
 
+  def admin?
+    self.is_a?(Admin)
+  end
+
 end
 
