@@ -31,3 +31,48 @@
 
 en:
   hello: "Hello world"
+
+  good_luck_flash: "Good Luck!"
+  
+  helpers:
+  
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"    
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    test:
+      start: "Start"
+    index:
+      header: "Tricky Tests"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"    
+
+  admin:
+    tests:
+      index:
+        header: "Tricky Tests"
+      new:
+        header: "Create new test"
+      edit:
+        header: "Update %{title} test"           
+      create:
+        success: "Test was successfully created"  
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the YestGuru test!"      
