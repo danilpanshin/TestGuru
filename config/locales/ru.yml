@@ -266,10 +266,8 @@ ru:
       short: "%d %b, %H:%M"
     pm: вечера
   
-  hello:
-    "привет мир!"
-
-  good_luck_flash: "Удачи!"  
+ 
+  
   
   helpers:
 
@@ -292,6 +290,8 @@ ru:
         other: "Обнаружено %{count} ошибки"
 
   tests:
+    start:
+      good_luck_flash: "Удачи!"  
     test:
       start: "Начать"
     index:
