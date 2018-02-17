@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+
+  <% if current_user.admin? %>
+    <%= link_to 'Admin Panel', admin_tests_path, class: 'navbar-brand' %>
+  <% end %>  
+
+  <span class="navbar-text"
+    <% if user_signed_in? %>
+      <p>Welcome, <b><%= current_user.user_name %></b> Guru |
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %></p>      
+    <% else %>
+      <p><%= link_to 'Log In', new_user_session_path %> |  
+         <%= link_to 'Sign Up', new_user_registration_path %></p>      
+    <% end %>
+
+    <% if I18n.locale == I18n.default_locale %>
+      <%= link_to "English", { lang: 'en' } %>
+
+    <% else %>
+      <%= link_to "Русский", { lang: 'ru' } %>
+
+    <%end%>
+  </span>
+</nav>

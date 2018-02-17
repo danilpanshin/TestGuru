@@ -1,13 +1,20 @@
-<h1><%= I18n.t('tests.index.header') %></h1>
+<div class="table-responsive">
+  <div class="col col-md-10">
 
-<table>
+    <h1><%= I18n.t('tests.index.header') %></h1>
 
-  <tr>
-    <th>Название</th>
-    <th>Уровень</th>
-    <th>Количество вопросов</th>
-  </tr>
-
-  <%= render @tests %>
-
-</table>
+    
+    <table class="table table-striped table-hover">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Название</th>
+          <th>Уровень</th>
+          <th>Количество вопросов</th>
+        </tr>
+      </thead>  
+      <tbody>
+        <%= render @tests %>
+      </tbody>
+    </table>
+  </div>
+</div>  
