@@ -16,5 +16,14 @@ module ApplicationHelper
     end
   end
 
+  def link_to_select_language
+
+    if I18n.locale == I18n.default_locale 
+      link_to "English", { lang: 'en' }
+    else 
+      link_to "Русский", { lang: 'ru' }
+    end
+  end
+
 
 end

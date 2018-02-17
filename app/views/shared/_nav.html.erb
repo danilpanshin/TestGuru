@@ -14,12 +14,7 @@
          <%= link_to 'Sign Up', new_user_registration_path %></p>      
     <% end %>
 
-    <% if I18n.locale == I18n.default_locale %>
-      <%= link_to "English", { lang: 'en' } %>
-
-    <% else %>
-      <%= link_to "Русский", { lang: 'ru' } %>
-
-    <%end%>
+    <%= link_to_select_language %>
+    
   </span>
 </nav>
