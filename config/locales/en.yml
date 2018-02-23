@@ -32,7 +32,8 @@
 en:
   hello: "Hello world"
 
-  
+  gist_description: "A question about %{title} from TestGuru"
+  gist_filename: "Interesting_question_from_TestGuru.txt"
   
   helpers:
   
@@ -63,6 +64,8 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!" 
+    show:
+      gist: "Create the Gist"  
     gist:
       success: "Gist was successfully created!"     
       failure: "An error ocured while saving gist"    
@@ -81,3 +84,4 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the YestGuru test!"      
+

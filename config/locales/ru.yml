@@ -300,7 +300,9 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!" 
+      header: "Тест %{title} успешно завершён!"
+    show:
+      gist: "создать Gist"   
     gist:
       success: "Gist успешно сохранен!"     
       failure: "Во время сохранения gist произошла ошибка!"
@@ -318,5 +320,7 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"      
-
+  
+  gist_description: "Вопрос о %{title} из ТестГуру"
+  gist_filename: "Интересный_вопрос_из_ТестГуру.txt"
              
