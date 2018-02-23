@@ -304,7 +304,7 @@ ru:
     show:
       gist: "создать Gist"   
     gist:
-      success: "Gist успешно сохранен!"     
+      success: "Gist успешно сохранен! <b><a href=%{url} target='_blank'>Ссылка</a></b>"     
       failure: "Во время сохранения gist произошла ошибка!"
   admin:
     tests:

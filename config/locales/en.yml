@@ -67,7 +67,7 @@ en:
     show:
       gist: "Create the Gist"  
     gist:
-      success: "Gist was successfully created!"     
+      success: "Gist was successfully created!<b> <a href=%{url} target='_blank'>Go to gist</a></b>"     
       failure: "An error ocured while saving gist"    
 
   admin:
