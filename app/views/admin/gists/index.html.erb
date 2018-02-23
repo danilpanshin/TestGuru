@@ -1,12 +1,14 @@
-<table>
-  <thead>
+<table class="table table-bordered table-sm ">
+  <thead class="thead-dark">
     <tr>
-      <th>User</th>
-      <th>Question</th>
+      <th><%= t('.user') %></th>
+      <th><%= t('.question') %></th>
       <th>Url</th>
     </tr>
   </thead>
+  <tbody class="table-striped table-dark">
 
   <%= render @gists %>
 
+  </tbody>
 </table>

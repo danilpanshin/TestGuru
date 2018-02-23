@@ -316,6 +316,12 @@ ru:
         header: "Редактировать %{title} тест"      
       create:
         success: "Тест успешно создан"
+    gists:
+      index:
+        user: "Пользователь"
+        question: "Вопрос"
+        
+
 
   tests_mailer:
     completed_test:

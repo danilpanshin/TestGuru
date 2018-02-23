@@ -68,7 +68,8 @@ en:
       gist: "Create the Gist"  
     gist:
       success: "Gist was successfully created!<b> <a href=%{url} target='_blank'>Go to gist</a></b>"     
-      failure: "An error ocured while saving gist"    
+      failure: "An error ocured while saving gist"  
+
 
   admin:
     tests:
@@ -80,6 +81,11 @@ en:
         header: "Update %{title} test"           
       create:
         success: "Test was successfully created"  
+    gists:
+      index:
+        user: "User"
+        question: "Question"
+              
 
   tests_mailer:
     completed_test:
