@@ -300,8 +300,10 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"    
-  
+      header: "Тест %{title} успешно завершён!" 
+    gist:
+      success: "Gist успешно сохранен!"     
+      failure: "Во время сохранения gist произошла ошибка!"
   admin:
     tests:
       index:
