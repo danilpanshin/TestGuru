@@ -8,10 +8,10 @@
   <span class="navbar-text"
     <% if user_signed_in? %>
       <p>Welcome, <b><%= current_user.user_name %></b> Guru |
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %></p>      
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: :btn %></p>      
     <% else %>
-      <p><%= link_to 'Log In', new_user_session_path %> |  
-         <%= link_to 'Sign Up', new_user_registration_path %></p>      
+      <p><%= link_to 'Log In', new_user_session_path, class: :btn %> |  
+         <%= link_to 'Sign Up', new_user_registration_path, class: :btn %></p>      
     <% end %>
 
     <%= link_to_select_language %>

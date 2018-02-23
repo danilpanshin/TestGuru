@@ -2,15 +2,16 @@
 
 	<span class="navbar-text">
 
-    <%= link_to 'TestGuru', root_path %> Admin Panel
+    <%= link_to 'TestGuru', root_path, class: :btn %> Admin Panel
 
   </span>
 
 	<span class="navbar-text">
 		Welcome, <b><%= current_user.user_name %></b> Guru | 
-		<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+		<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: :btn %>
     
-    <p><%= link_to_select_language %></p>
+    <p><%= link_to_select_language %> |<%= link_to 'Gists', admin_gists_path, class: :btn %></p>
+    
     
 	</span>
 </nav>
