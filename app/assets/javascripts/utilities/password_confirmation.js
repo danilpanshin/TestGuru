@@ -1,10 +1,12 @@
+
 var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
+  if (document.getElementById('user_password').value ==
+    document.getElementById('user_password_confirmation').value)  {
     document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'matching';
+    document.getElementById('message').innerHTML = 'Пароли совпадают';
   } else {
     document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'not matching';
+    document.getElementById('message').innerHTML = 'Пароли не совпадают';
   }
 }
+
