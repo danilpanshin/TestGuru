@@ -23,12 +23,15 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", id: 'user_password', onkeyup: 'check()' %>
+    <%= f.password_field :password, autocomplete: "off", onkeyup: 'check()' %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", id: 'user_password_confirmation', onkeyup: 'check()' %>
+    
+    <%= f.password_field :password_confirmation, autocomplete: "off", onkeyup: 'check()' %>
+    <%= octicon 'alert', class: 'text-danger hide' %>
+    <%= octicon 'smiley', class: 'text-success hide' %>
     <span id='message'></span>
   </div>
 
