@@ -1,19 +1,24 @@
-<h1><%= t('.header') %></h1>
+<h1>Tricky tests</h1>
 
 <p>
   <%= link_to 'New Test', new_admin_test_path %>
 </p>
 
 <table class="table">
-
-  <tr>
-    <th>Id</th>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Number of questions</th>
-    <th colspan="3">Actions</th>
-  </tr>
-
-  <%= render @tests %>
-
+  <thead>
+    <tr align="center">
+      
+      <th class="sort-by-title pointer">
+        Title
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>Level</th>
+      <th>Number of questions</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>

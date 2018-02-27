@@ -1,19 +1,24 @@
-<h1><%= t('.header') %></h1>
+<h1>Доступные тесты</h1>
 
 <p>
   <%= link_to 'Создать новый тест', new_admin_test_path %>
 </p>
 
 <table class="table">
-
-  <tr>
-    <th>Id</th>
-    <th>Название</th>
-    <th>Уровень</th>
-    <th>Количество вопросов</th>
-    <th colspan="3">Действия</th>
-  </tr>
-
-  <%= render @tests %>
-
+  <thead>
+    <tr align="center">
+     
+      <th class="sort-by-title pointer">
+        Название
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>Уровень</th>
+      <th>Количество вопросов</th>
+      <th colspan="3">Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
 </table>
