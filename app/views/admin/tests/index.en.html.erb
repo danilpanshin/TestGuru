@@ -4,6 +4,8 @@
   <%= link_to 'New Test', new_admin_test_path %>
 </p>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table">
   <thead>
     <tr align="center">

@@ -316,6 +316,8 @@ ru:
         header: "Редактировать %{title} тест"      
       create:
         success: "Тест успешно создан"
+      form_inline: 
+        submit: "OK"  
     gists:
       index:
         user: "Пользователь"

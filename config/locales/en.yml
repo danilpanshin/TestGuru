@@ -80,7 +80,9 @@ en:
       edit:
         header: "Update %{title} test"           
       create:
-        success: "Test was successfully created"  
+        success: "Test was successfully created"
+      form_inline: 
+        submit: "OK"      
     gists:
       index:
         user: "User"
