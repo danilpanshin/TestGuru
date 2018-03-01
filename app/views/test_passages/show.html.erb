@@ -1,5 +1,13 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<div class="progress test-progress">
+  <%= content_tag :div, '',
+                  class: 'progress progress-bar progress-bar-striped bg-success',
+                  id: 'test-progress',                  
+                  data: { question_number: @test_passage.number_of_question,
+                          questions_count:@test_passage.test.questions.count } %>
+</div>
+
 <p><b>question number <%= @test_passage.number_of_question %> of <%= @test_passage.test.questions.count %> </b></p>
 
 
@@ -16,7 +24,7 @@
 
   <p><%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post %></p>
 
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', class: 'btn btn-outline-secondary btn-sm', onclick: 'move()' %></p>
 
 <% end %>
 
