@@ -8,13 +8,13 @@
 [User, Category, Test, Question, Answer].each(&:destroy_all)
 
 User.create([
-                      {name: "John Smith",
+                      {
                        email: 'john@mail.com'},
 
-                      {name: "Thomas Anderson",
+                      {
                        email: 'neo@mail.com'},
 
-                      {name: "Trinity",
+                      {
                        email: 'trinity@mail.com'}
                     ])
 
