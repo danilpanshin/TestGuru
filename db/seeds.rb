@@ -5,88 +5,88 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-[User, Category, Test, Question, Answer].each(&:destroy_all)
+# [User, Category, Test, Question, Answer].each(&:destroy_all)
 
-User.create([
-                      {name: "John Smith",
-                       email: 'john@mail.com'},
+# User.create([
+#                       {
+#                        email: 'john@mail.com'},
 
-                      {name: "Thomas Anderson",
-                       email: 'neo@mail.com'},
+#                       {
+#                        email: 'neo@mail.com'},
 
-                      {name: "Trinity",
-                       email: 'trinity@mail.com'}
-                    ])
+#                       {
+#                        email: 'trinity@mail.com'}
+#                     ])
 
-Category.create( [
-                          {title: "Frontend"},
+# Category.create( [
+#                           {title: "Frontend"},
 
-                          {title: "Backend"},
+#                           {title: "Backend"},
 
-                          {title: "Mobile"}
+#                           {title: "Mobile"}
 
-                 ])
+#                  ])
 
-Test.create([
-                     {title: "Ruby",
-                     level: 1},
+# Test.create([
+#                      {title: "Ruby",
+#                      level: 1},
 
-                     {title: "HTML",
-                     level: 0},
+#                      {title: "HTML",
+#                      level: 0},
 
-                     {title: "Swift",
-                     level: 2}
-            ])
+#                      {title: "Swift",
+#                      level: 2}
+#             ])
 
-Question.create([
-                         {body: "What is 'let'?",
-                          test_id: 1},
+# Question.create([
+#                          {body: "What is 'let'?",
+#                           test_id: 1},
 
-                         {body: "What does the following code print?",
-                          test_id: 1}
-                ])
+#                          {body: "What does the following code print?",
+#                           test_id: 1}
+#                 ])
 
-Answer.create([
-                       {body: 'nothing',
-                        question_id: 1,
-                        correct: false},
+# Answer.create([
+#                        {body: 'nothing',
+#                         question_id: 1,
+#                         correct: false},
 
-                        {body: 'anything',
-                        question_id: 1,
-                        correct: true},
+#                         {body: 'anything',
+#                         question_id: 1,
+#                         correct: true},
 
-                        {body: 'everything',
-                        question_id: 1,
-                        correct: false},
+#                         {body: 'everything',
+#                         question_id: 1,
+#                         correct: false},
 
-                        {body: 'nothing',
-                        question_id: 2,
-                        correct: false},
+#                         {body: 'nothing',
+#                         question_id: 2,
+#                         correct: false},
 
-                        {body: 'anything',
-                        question_id: 2,
-                        correct: true},
+#                         {body: 'anything',
+#                         question_id: 2,
+#                         correct: true},
 
-                        {body: 'everything',
-                        question_id: 2,
-                        correct: false}
-              ])
-TestPassage.create([
-                    {user_id: 1,
-                    test_id: 1,
-                    current_question_id: 1},
+#                         {body: 'everything',
+#                         question_id: 2,
+#                         correct: false}
+#               ])
+# TestPassage.create([
+#                     {user_id: 1,
+#                     test_id: 1,
+#                     current_question_id: 1},
 
-                    {user_id: 2,
-                     test_id: 2,
-                     current_question_id: 2},
+#                     {user_id: 2,
+#                      test_id: 2,
+#                      current_question_id: 2},
 
-                     {user_id: 1,
-                    test_id: 1,
-                    current_question_id: 1},
+#                      {user_id: 1,
+#                     test_id: 1,
+#                     current_question_id: 1},
 
-                    {user_id: 1,
-                    test_id: 1,
-                    current_question_id: 1},
-  ])
+#                     {user_id: 1,
+#                     test_id: 1,
+#                     current_question_id: 1},
+#   ])
 
 
