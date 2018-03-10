@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'contact_forms/new'
+
+  get 'contact_forms/create'
+
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'user/sessions' }
  
 
@@ -8,7 +12,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get :welcome, to: 'welcome#index'
   
- 
+  resources :contact_forms, only: %i[new create]
 
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
