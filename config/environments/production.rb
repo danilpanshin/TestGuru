@@ -61,14 +61,14 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "TestGuru_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'thawing-sierra-38804.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'testgurucom.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               "thawing-sierra-38804.herokuapp.com",
+    domain:               "testgurucom.herokuapp.com",
     authentication:       "plain",
     user_name:            ENV["SMTP_USERNAME"],
     password:             ENV["SMTP_PASSWORD"],
