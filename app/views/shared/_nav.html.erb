@@ -14,6 +14,7 @@
          <%= link_to 'Sign Up', new_user_registration_path, class: :btn %></p>      
     <% end %>
 
+    
     <%= link_to_select_language %> |
     <% if user_signed_in? && current_user.admin? == false %>
       <%= link_to 'Contact us', new_contact_form_path, class: :btn %>
