@@ -1,3 +1,18 @@
-// Place all the styles related to the contact_forms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.skinny_wrapper {
+  width: 80%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.wrapper_padding {
+  padding: 4rem 0;
+}
+
+.hidden {
+  display: none;
+}

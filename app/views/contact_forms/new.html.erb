@@ -1,23 +1,22 @@
-<h1>ContactForms#new</h1>
+<h1>Hello!</h1>
 
-<%= form_for @contact_form do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name, required: true %>
+<div class="skinny_wrapper wrapper_padding">
+  <%= form_for @contact_form do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true %>
 
-  <br>
+    <br>
 
-  <%= f.label :email %><br>
-  <%= f.email_field :email, required: true %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, required: true %>
 
-  <br>
+    <br>
 
-  <%= f.label :message %><br>
-  <%= f.text_area :message, as: :text %>
+    <%= f.label :message %><br>
+    <%= f.text_area :message, as: :text %>
 
-  <div class="hidden">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname, hint: 'leave this field blank' %>
-  </div>
+    <br>
 
-  <%= f.submit 'Send Message', class: "button" %>
-<% end %>
+    <%= f.submit 'Send Message', class: "button" %>
+  <% end %>
+</div>
