@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Timer:</strong>
+  <%= @test.timer %>
+</p>
+
+<p>
   <strong>Category:</strong>
   <%= Category.where(id: @test.category_id).pluck(:title).join %>
 </p>

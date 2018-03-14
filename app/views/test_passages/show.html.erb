@@ -1,4 +1,18 @@
+
+
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
+
+<script language="JavaScript">
+TargetDate = new Date("<%= @time %>");
+BackColor = "white";
+ForeColor = "grey";
+CountActive = true;
+CountStepper = -1;
+LeadingZero = true;
+DisplayFormat = "%%M%% Minutes, %%S%% Seconds left";
+FinishMessage = "It is finally here!";
+</script>
+<script language="JavaScript" src="https://scripts.hashemian.com/js/countdown.js"></script>
 
 <div class="progress">
   <%= content_tag :div, '',

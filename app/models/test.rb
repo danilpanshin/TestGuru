@@ -28,4 +28,6 @@ class Test < ApplicationRecord
                     message: "There can be only one test with this name and level" }
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  validates :timer, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end
