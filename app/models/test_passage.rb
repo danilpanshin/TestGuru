@@ -35,7 +35,12 @@ class TestPassage < ApplicationRecord
   	percent_of_complition > SUCCESS_RATE
   end
 
-  
+  def time
+    if self.test.timer.present?
+      self.created_at + self.test.timer.minutes 
+    end
+    
+  end
 
 
 
