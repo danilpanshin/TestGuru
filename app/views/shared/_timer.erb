@@ -1,6 +1,7 @@
   <p>Осталось: <%= content_tag :span,
                                        @test_passage.test.timer,
                                        id: 'timer',
-                                       data: { test_created: @test_passage.created_at.to_i,
-                                               time_test: @test_passage.test.timer }
+                                       data: {  result_link: result_test_passage_url(@test_passage),
+                                                test_created: @test_passage.created_at.to_i,
+                                                time_test: @test_passage.test.timer }
                         %>с.</p>

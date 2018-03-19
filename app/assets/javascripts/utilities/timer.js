@@ -13,7 +13,7 @@ function changeTimer(timer) {
 
     if (passedTime > timeTest) {
         alert('Время вышло!')
-        window.location.href = window.location.href + "/result";
+        window.location.href = timer.dataset.resultLink;
         
     }
 
