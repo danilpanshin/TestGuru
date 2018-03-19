@@ -4,11 +4,10 @@ class TestPassagesController < ApplicationController
 	before_action :set_test_passage, only: %i[show update result gist]
   around_action :check_time, only: %i[show]
 
-  TIME = Time.now 
+  
   
   def show
-    #@time = @test_passage.time
-       
+          
   end
 
   def check_time

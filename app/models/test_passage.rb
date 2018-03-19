@@ -37,7 +37,7 @@ class TestPassage < ApplicationRecord
 
   def time
     if self.test.timer.present?
-      self.created_at + self.test.timer.minutes 
+      self.created_at + self.test.timer.seconds 
     end
     
   end
