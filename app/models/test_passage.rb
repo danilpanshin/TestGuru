@@ -19,7 +19,9 @@ class TestPassage < ApplicationRecord
   end
 
   def time_is_up?
-    (Time.now - self.created_at) > self.test.timer
+    if self.test.timer
+      (Time.now - self.created_at) > self.test.timer
+    end
   end
 
 
@@ -42,15 +44,6 @@ class TestPassage < ApplicationRecord
   def success_test?
   	percent_of_complition > SUCCESS_RATE
   end
-
-  def time
-    if self.test.timer.present?
-      self.created_at + self.test.timer.seconds 
-    end
-    
-  end
-
-
 
   private
 
