@@ -18,6 +18,10 @@ class TestPassage < ApplicationRecord
     (Time.now - self.created_at).round 1 
   end
 
+  def time_is_up?
+    (Time.now - self.created_at) > self.test.timer
+  end
+
 
   def accept!(answer_ids)
   	if correct_answer?(answer_ids)

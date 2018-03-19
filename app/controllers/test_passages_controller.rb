@@ -2,38 +2,27 @@ class TestPassagesController < ApplicationController
   
   before_action :authenticate_user!
 	before_action :set_test_passage, only: %i[show update result gist]
-  around_action :check_time, only: %i[show]
-
-  
-  
+    
   def show
           
   end
-
-  def check_time
-    @time = @test_passage.time 
-
-    if @time.present? && Time.parse((@time).to_s) < Time.now
-      TestsMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
-    else      
-      render :show
-    end   
-  end
-
-  
-
+ 
   def result
     
   end
     
   def update
-  	@test_passage.accept!(params[:answer_ids])
-    
-    @time = @test_passage.time
-     
+  
+    if @test_passage.time_is_up?
+      flash[:alert] = 'Time is up!'
+      TestsMailer.completed_test(@test_passage).deliver_now
+      redirect_to result_test_passage_path(@test_passage)
+      return
+    end
 
-    if @test_passage.completed? || (@time.present? && Time.parse((@time).to_s) < Time.now)
+  	@test_passage.accept!(params[:answer_ids])
+   
+    if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else    	
