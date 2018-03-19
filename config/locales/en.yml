@@ -30,6 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  test_success: "The test was passsed successfully"
+  test_failed: "Test failed"
   hello: "Hello world"
 
   gist_description: "A question about %{title} from TestGuru"
@@ -48,6 +50,8 @@ en:
         category_id: "Category"    
 
   shared:
+    timer:
+      remain: "Time remain"
     errors:
       header:
         one: "%{count} error detected"
@@ -64,6 +68,8 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!" 
+      answers: "Correct answers"
+      spent: "Spent time"
     show:
       gist: "Create the Gist"  
     gist:
@@ -91,5 +97,5 @@ en:
 
   tests_mailer:
     completed_test:
-      subject: "You just completed the YestGuru test!"      
+      subject: "You just completed the TestGuru test!"      
 

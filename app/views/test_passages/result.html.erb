@@ -3,11 +3,11 @@
 <p><strong><%= test_result(@test_passage) %></strong></p>
 
 <p>
-	Correct answers: <span class="<%= color(@test_passage) %>"><%= @test_passage.percent_of_complition %>%</span>
+	<%= t('.answers') %>: <span class="<%= color(@test_passage) %>"><%= @test_passage.percent_of_complition %>%</span>
 </p>
 
 <p>
-  Spent time: <%= @test_passage.spent_time %> sec.
+  <%= t('.spent') %>: <%= @test_passage.spent_time %> sec.
 </p>
 
 <p><%= link_to 'Back to the list of tests', tests_path %></p>

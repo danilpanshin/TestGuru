@@ -1,5 +1,7 @@
 ---
 ru:
+  test_success: "тест пройден успешно"
+  test_failed: "Тест провален"
   activerecord:
     errors:
       messages:
@@ -282,6 +284,8 @@ ru:
         category_id: "Категория"      
 
   shared:
+    timer:
+      remain: "Осталось времени"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -300,7 +304,9 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title} завершён!"
+      answers: "Правильные ответы"
+      spent: "Потрачено времени"
     show:
       gist: "создать Gist"   
     gist:

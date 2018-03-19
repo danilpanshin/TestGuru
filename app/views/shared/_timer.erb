@@ -1,4 +1,4 @@
-  <p>Осталось: <%= content_tag :span,
+  <p><%= t('.remain') %>: <%= content_tag :span,
                                        @test_passage.test.timer,
                                        id: 'timer',
                                        data: {  result_link: result_test_passage_url(@test_passage),

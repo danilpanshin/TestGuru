@@ -1,9 +1,9 @@
 module TestPassagesHelper
   def test_result(test_passage)
     if test_passage.success_test?
-	    'The test passed successfully'
+	    I18n.t('test_success')
 	  else
-	    'Test failed'	
+	    I18n.t('test_failed')	
 	  end 
   end
 
