@@ -6,4 +6,8 @@
 	Correct answers: <span class="<%= color(@test_passage) %>"><%= @test_passage.percent_of_complition %>%</span>
 </p>
 
+<p>
+  Spent time: <%= @test_passage.spent_time %> sec.
+</p>
+
 <p><%= link_to 'Back to the list of tests', tests_path %></p>
