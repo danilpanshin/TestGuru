@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   
-  before_action :set_tests, only: %i[index update_inline]
+  before_action :set_tests, only: %i[index update_inline destroy]
   before_action :find_test, only: %i[show edit update destroy start update_inline] 
   
 
