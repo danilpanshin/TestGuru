@@ -1,5 +1,5 @@
 class Test < ApplicationRecord
-  has_many :test_passages, dependent: :destroy 
+  has_many :test_passages, dependent: :delete 
   has_many :users, through: :test_passages
   has_many :questions
   belongs_to :category, optional: true
