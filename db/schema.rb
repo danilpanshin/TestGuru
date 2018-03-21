@@ -97,5 +97,5 @@ ActiveRecord::Schema.define(version: 20180321010008) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "test_passages", "tests", on_delete: :nullify
+  add_foreign_key "test_passages", "tests", on_delete: :cascade
 end
