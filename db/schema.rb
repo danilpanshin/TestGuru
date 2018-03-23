@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321010008) do
+ActiveRecord::Schema.define(version: 20180323121831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20180321010008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -71,6 +78,15 @@ ActiveRecord::Schema.define(version: 20180321010008) do
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
+  create_table "user_badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,4 +114,6 @@ ActiveRecord::Schema.define(version: 20180321010008) do
   end
 
   add_foreign_key "test_passages", "tests", on_delete: :cascade
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "users"
 end
