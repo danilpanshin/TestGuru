@@ -3,11 +3,12 @@
 
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to 'Admin Panel', admin_tests_path, class: 'navbar-brand' %>
+    <%= link_to 'Manage Badges', admin_badges_path, class: 'navbar-brand' %>
   <% end %>  
 
   <span class="navbar-text"
     <% if user_signed_in? %>
-      <p>Welcome, <b><%= current_user.user_name %></b> Guru |
+      <p>Welcome,<b><%= link_to current_user.user_name, badges_path, class: :btn %></b>Guru |
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: :btn %></p>      
     <% else %>
       <p><%= link_to 'Log In', new_user_session_path, class: :btn %> |  
@@ -24,3 +25,4 @@
     
   </span>
 </nav>
+

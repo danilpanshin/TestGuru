@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :contact_forms, only: %i[new create]
 
+  resources :badges, only: :index
+
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
@@ -37,6 +39,8 @@ Rails.application.routes.draw do
         end 
     end
     resources :gists, only: :index 
+
+    resources :badges
   end
 
 
