@@ -47,7 +47,7 @@ class Admin::BadgesController < Admin::BaseController
   private
 
   def set_badges
-    @badges = Test.all
+    @badges = Badge.all
   end
 
   def badge_params
