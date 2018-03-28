@@ -27,7 +27,7 @@ class TestPassagesController < ApplicationController
       badge = BadgesReward.new(@test_passage)
       badge.call
       
-      if badge.badge_success?
+      if badge.rewarded?
         flash[:notice] = "you are awarded a #{view_context.link_to('badge', badges_path)}.".html_safe
       end  
 

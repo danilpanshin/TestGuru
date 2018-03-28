@@ -3,65 +3,39 @@ class BadgesReward
   def initialize (test_passage)
     @test_passage = test_passage
     @user = @test_passage.user
-    @badge_first_try = Badge.where("title = 'Hit the first time'")
-    @badge_backend = Badge.where("title = 'Backender'").first  
-    @badge_first_level = Badge.where("title = 'Lord of the first level'").first
+    @rewarded = false    
+  end
+
+  def reward_user!(badge)
+    @user.badges << badge
+    @rewarded = true 
   end
   
-  def call
-
-    if test_passed_on_the_first_try? && backender? && first_level_all_tests?
-
-      @user.badges << @badge_first_try
-      @user.badges << @badge_backend
-      @user.badges << @badge_first_level
-
-    elsif test_passed_on_the_first_try? && backender?
-
-      @user.badges << @badge_first_try
-      @user.badges << @badge_backend
-
-    elsif test_passed_on_the_first_try? && first_level_all_tests?
-
-      @user.badges << @badge_first_try
-      @user.badges << @badge_first_level
-
-    elsif backender? && first_level_all_tests?
-
-      @user.badges << @badge_backend
-      @user.badges << @badge_first_level
-
-    elsif test_passed_on_the_first_try?
-
-      @user.badges << @badge_first_try
-
-    elsif first_level_all_tests?
-
-      @user.badges << @badge_first_level         
-
-    elsif backender?
-
-      @user.badges << @badge_backend   
-
-    end
-
-    def badge_success?
-      test_passed_on_the_first_try? || backender? || first_level_all_tests?
-    end  
-
+  def rewarded?
+    @rewarded
   end  
+  
+
+  def call
+    Badge.all.each do |badge|
+      reward_user!(badge) if self.send("passed_#{badge.rule_name}_rule?", badge.rule_value)
+    end
+  end
+    
 
   private
 
-  def test_passed_on_the_first_try?
+
+  def passed_first_time_rule?(rule)
     @test_passage.success_test? && @user.tests.where("title = ?", @test_passage.test.title).count == 1
   end
 
-  def backender?
-    @test_passage.success_test? && @user.tests.where(@badge_backend.rule).uniq.count == Test.where(@badge_backend.rule).count  
+  def passed_all_tests_with_level_rule?(level)
+    @test_passage.success_test? && @user.tests.where("level = ?", level).uniq.count == Test.where("level = ?", level).count
   end
 
-  def first_level_all_tests?
-    @test_passage.success_test? && @user.tests.where(@badge_first_level.rule).uniq.count == Test.where(@badge_first_level.rule).count
+  def passed_all_tests_with_category_rule?(category_id)
+    @test_passage.success_test? && @user.tests.where("category_id = ?", category_id).uniq.count == Test.where("category_id = ?", category_id).count 
   end
+
 end
