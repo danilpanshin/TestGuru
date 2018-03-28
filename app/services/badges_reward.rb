@@ -1,9 +1,10 @@
 class BadgesReward
   
+  attr_accessor :rewarded
+
   def initialize (test_passage)
     @test_passage = test_passage
-    @user = @test_passage.user
-    @rewarded = false    
+    @user = @test_passage.user        
   end
 
   def reward_user!(badge)
@@ -11,11 +12,6 @@ class BadgesReward
     @rewarded = true 
   end
   
-  def rewarded?
-    @rewarded
-  end  
-  
-
   def call
     Badge.all.each do |badge|
       reward_user!(badge) if self.send("passed_#{badge.rule_name}_rule?", badge.rule_value)
