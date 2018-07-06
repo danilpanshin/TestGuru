@@ -11,9 +11,9 @@ Things you may want to cover:
 
 * Сущности в приложении:
   
-    Администратор
+    Администратор ( login: danilpanshin@gmail.com password: 123456)
   
-    Пользователь
+    Пользователь (регистрация с подтверждением email)
    
     Тест   
     
