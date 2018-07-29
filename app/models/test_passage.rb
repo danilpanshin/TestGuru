@@ -6,29 +6,22 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
-
   SUCCESS_RATE = 85
 
-
   def completed?
-  	current_question.nil?
+    current_question.nil?
   end
 
   def spent_time
-    (Time.now - self.created_at).round 1 
+    (Time.now - created_at).round 1
   end
 
   def time_is_up?
-    if self.test.timer
-      (Time.now - self.created_at) > self.test.timer
-    end
+    (Time.now - created_at) > test.timer if test.timer
   end
 
-
   def accept!(answer_ids)
-  	if correct_answer?(answer_ids)
-  	  self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -36,22 +29,20 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
-
   def percent_of_complition
-    (correct_questions.to_f/test.questions.count*100).round 2
+    (correct_questions.to_f / test.questions.count * 100).round 2
   end
 
   def success_test?
-  	percent_of_complition > SUCCESS_RATE
+    percent_of_complition > SUCCESS_RATE
   end
 
   private
 
   def before_validation_set_first_question
-  	self.current_question = test.questions.first if test.present?
+    self.current_question = test.questions.first if test.present?
   end
 
-  
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
@@ -60,15 +51,14 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-  	current_question.answers.correct
+    current_question.answers.correct
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first 
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def before_validation_set_next_question
     self.current_question = next_question
   end
-
 end

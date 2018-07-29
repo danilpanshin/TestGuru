@@ -1,21 +1,15 @@
 class Admin::QuestionsController < Admin::BaseController
+  before_action :authenticate_user!
+  before_action :find_question, only: %i[show edit update destroy]
+  before_action :find_test, only: %i[create new]
 
-before_action :authenticate_user!
-before_action :find_question, only: %i[show edit update destroy]
-before_action :find_test, only: %i[create new]
-
-
-  def show
-
-  end
+  def show; end
 
   def new
     @question = @test.questions.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @question = @test.questions.new(question_params)
@@ -28,7 +22,6 @@ before_action :find_test, only: %i[create new]
   end
 
   def update
-
     if @question.update(question_params)
       redirect_to controller: 'tests', action: 'show', id: @question.test_id
     else
@@ -37,7 +30,6 @@ before_action :find_test, only: %i[create new]
   end
 
   def destroy
-
     @question.destroy
 
     redirect_to controller: 'tests', action: 'show', id: @question.test_id
@@ -56,6 +48,4 @@ before_action :find_test, only: %i[create new]
   def question_params
     params.require(:question).permit(:body)
   end
-
 end
-

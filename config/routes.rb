@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'user/sessions' }
- 
-
 
   get 'welcome/index'
   root 'welcome#index'
   get :welcome, to: 'welcome#index'
-  
-  
+
   resources :contact_forms, only: %i[new create]
 
   resources :badges, only: :index
@@ -32,17 +28,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :tests do
-      patch :update_inline, on: :member  
+      patch :update_inline, on: :member
 
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
-        end 
+      end
     end
-    resources :gists, only: :index 
+    resources :gists, only: :index
 
     resources :badges
   end
-
-
-
 end

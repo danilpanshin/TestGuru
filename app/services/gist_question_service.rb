@@ -1,5 +1,4 @@
 class GistQuestionService
-
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -27,15 +26,14 @@ class GistQuestionService
       files: {
         I18n.t('gist_filename') => {
           content: gist_content
-        }  
-      }  
+        }
+      }
     }
   end
 
   def gist_content
     content = [@question.body]
     content += @question.answers.pluck(:body)
-    content.join("\n")    
+    content.join("\n")
   end
-
 end

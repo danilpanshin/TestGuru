@@ -1,18 +1,12 @@
 class TestPassagesController < ApplicationController
-  
   before_action :authenticate_user!
-	before_action :set_test_passage, only: %i[show update result gist]
-    
-  def show
-          
-  end
- 
-  def result
-    
-  end
-    
+  before_action :set_test_passage, only: %i[show update result gist]
+
+  def show; end
+
+  def result; end
+
   def update
-  
     if @test_passage.time_is_up?
       flash[:alert] = 'Time is up!'
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -20,24 +14,22 @@ class TestPassagesController < ApplicationController
       return
     end
 
-  	@test_passage.accept!(params[:answer_ids])
-   
+    @test_passage.accept!(params[:answer_ids])
+
     if @test_passage.completed?
-      
+
       badge = BadgesReward.new(@test_passage)
       badge.call
-      
+
       if badge.rewarded
         flash[:notice] = "you are awarded a #{view_context.link_to('badge', badges_path)}.".html_safe
-      end  
+      end
 
-      
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
-    else    	
+    else
       render :show
     end
-
   end
 
   def gist
@@ -45,22 +37,19 @@ class TestPassagesController < ApplicationController
 
     result.call
 
-    if result.success? 
-      
+    if result.success?
+
       current_user.gists.create(question: @test_passage.current_question, gist_url: result.gist_url)
       flash_options = { notice: t('.success', url: result.gist_url) }
     else
-      flash_options = { alert: t('.failure') } 
+      flash_options = { alert: t('.failure') }
     end
-    redirect_to @test_passage, flash_options   
-    
+    redirect_to @test_passage, flash_options
   end
-
 
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
-
 end

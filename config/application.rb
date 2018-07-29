@@ -12,11 +12,8 @@ module TestGuru
     config.load_defaults 5.1
     config.time_zone = 'Moscow'
 
-    I18n.available_locales = [:en, :ru]
-
+    I18n.available_locales = %i[en ru]
 
     I18n.default_locale = :ru
-      
-   
   end
 end

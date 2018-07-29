@@ -5,7 +5,6 @@ class CreateBadges < ActiveRecord::Migration[5.1]
       t.string :img_url
       t.string :rule_name
       t.string :rule_value
-      
 
       t.timestamps
     end

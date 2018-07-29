@@ -37,8 +37,7 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   config.authentication_keys = [:email]
-  #config.authentication_keys = [:first_name, :last_name]
-
+  # config.authentication_keys = [:first_name, :last_name]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -279,5 +278,4 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.secret_key = '852f10a1ec73269e68720d27ca1b858ee8cbf4200b2fa6cef5f4c8aa3f55aecd8b14176a164fd586e368884e24ce7f5239556a43ecc6b9193fa1fc20005bec4f'
-
 end

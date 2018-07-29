@@ -1,5 +1,5 @@
 class Test < ApplicationRecord
-  has_many :test_passages, dependent: :nullify 
+  has_many :test_passages, dependent: :nullify
   has_many :users, through: :test_passages
   has_many :questions
   belongs_to :category, optional: true
@@ -9,23 +9,21 @@ class Test < ApplicationRecord
   scope :intermediate, -> { by_level(2..4) }
   scope :advanced, -> { by_level(5..Float::INFINITY) }
 
-  scope :by_level, -> (level) { where(level: level) }
+  scope :by_level, ->(level) { where(level: level) }
 
-  scope :by_category, -> (category) { joins(:category).where(categories: { title: category }) }
-
+  scope :by_category, ->(category) { joins(:category).where(categories: { title: category }) }
 
   def self.ordered_test_titles_by_category(category)
     Test.by_category(category).order(title: :desc).pluck(:title)
-    #Test.joins('JOIN categories ON categories.id = tests.category_id')
+    # Test.joins('JOIN categories ON categories.id = tests.category_id')
     #    .where('categories.title = :category', category: category)
     #    .order('tests.title DESC')
     #    .pluck('tests.title')
   end
 
-
   validates :title, presence: true,
                     uniqueness: { scope: :level,
-                    message: "There can be only one test with this name and level" }
+                                  message: 'There can be only one test with this name and level' }
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
