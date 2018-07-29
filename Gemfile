@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # auth
 gem 'devise', '~> 4.0'
 
+gem 'sprockets', '~>3.7.2'
+
 # NETWORKING
 
 gem 'faraday'
